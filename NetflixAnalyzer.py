@@ -1,26 +1,44 @@
-import tkinter as tk
-from tkinter import filedialog as fd
+import sys
+from PyQt5.QtWidgets import (QWidget, QPushButton, QLineEdit, QInputDialog, QApplication, QLabel)
 
 
-def selectFile():
-    file = fd.askopenfilename()
-    print(file)
-    
-    return file
+def dialog():
+    mbox = QMessageBox()
 
-#Define window properties
-window = tk.Tk()
-window.title('Netflix Analyzer')
-window.resizable('false', 'false')
-window.geometry('800x600')
+    mbox.setText("Your allegiance has been noted")
+    mbox.setDetailedText("You are now a disciple and subject of the all-knowing Guru")
+    mbox.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
+            
+    mbox.exec_()
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    w = QWidget()
+    w.resize(300,300)
+    w.setWindowTitle("Guru99")
 
 
-fileButton = tk.Button(window, text="File", command=selectFile)
+    label = QLabel(w)
+    label.setText("Behold the Guru, Guru99")
+    label.move(100,130)
+    label.show()
 
-fileButton.pack()
+    btn = QPushButton(w)
+    btn.setText('Beheld')
+    btn.move(110,150)
+    btn.show()
+    btn.clicked.connect(dialog)
 
-fileField = tk.Entry(window)
-fileField.pack()
 
-window.mainloop()
+    setGeometry(300, 300, 290, 150)
+    setWindowTitle('Input dialog')
+    show()
+
+
+    w.show()
+    sys.exit(app.exec_())
+
+
+
+
 
