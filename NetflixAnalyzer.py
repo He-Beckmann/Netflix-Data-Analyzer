@@ -27,18 +27,17 @@ class NetflixAnalyzer:
         btn.setText('Select Folder')
         btn.move(110,150)
         btn.show()
-        # btn.clicked.connect('test')
+        text = btn.clicked.connect(self.selectFolder)
+        print(text)
 
-        # label = QLabel(w)
-        # label.setText("Behold the Guru, Guru99")
-        # label.move(100,130)
-        # label.show()
 
 
 
         # text = QFileDialog.getExistingDirectory(w, 'Select Folder')
-
-
+    def selectFolder(self):
+        text = QFileDialog.getExistingDirectory(self.widget, 'Select Folder')
+        # print(text)
+        return False
 
 
 
